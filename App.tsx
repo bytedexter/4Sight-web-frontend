@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThemeProvider } from './components/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -8,16 +9,18 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="bg-[#050505] min-h-screen text-white overflow-x-hidden selection:bg-neon-blue selection:text-black">
-      <Navbar />
-      <main>
-        <Hero />
-        <Features />
-        <Testimonials />
-        <SeoGrader />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="dark:bg-[#050505] bg-slate-50 min-h-screen dark:text-white text-slate-800 overflow-x-hidden dark:selection:bg-neon-blue dark:selection:text-black selection:bg-neon-purple selection:text-white transition-colors duration-300">
+        <Navbar />
+        <main>
+          <Hero />
+          <Features />
+          <Testimonials />
+          <SeoGrader />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 
